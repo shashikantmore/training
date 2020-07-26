@@ -1,5 +1,7 @@
 name: Mutation tests
 
+on: [push, pull_request]
+
 jobs:
   applications:
     name: Mutation Test ${{ matrix.java-version }}
