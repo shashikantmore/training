@@ -1,0 +1,27 @@
+name: Findbugs
+
+on: [push, pull_request]
+
+jobs:
+  applications:
+    name: Findbugs ${{ matrix.java-version }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        java-version: [11]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v2
+      - name: Set Maven Wrapper
+        run: mvn -N io.takari:maven:0.7.7:wrapper -Dmaven=3.6.3
+      - name: Set JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java-version }}
+      - name: Findbugs
+        run: ./mvnw install findbugs:check
+        env:
+          MAVEN_OPTS: "-Xmx1g"
