@@ -21,5 +21,8 @@ class UserTest {
         User secondUser = new User();
         secondUser.setName("Sachin Patil");
         Assertions.assertEquals(secondUser, firstUser);
+        Assertions.assertEquals(secondUser.getName(), firstUser.getName());
+        Assertions.assertEquals(secondUser.hashCode(), firstUser.hashCode());
+        Assertions.assertEquals(secondUser.getBirthDate(), firstUser.getBirthDate());
     }
 }
