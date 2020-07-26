@@ -66,6 +66,15 @@
                 <artifactId>maven-project-info-reports-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
+
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>4.0.4</version>
+                <configuration>
+                    <onlyAnalyze>org.shashikantmore.*</onlyAnalyze>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

@@ -1,10 +1,10 @@
-name: Findbugs
+name: Spotbugs
 
 on: [push, pull_request]
 
 jobs:
   applications:
-    name: Findbugs ${{ matrix.java-version }}
+    name: Spotbugs ${{ matrix.java-version }}
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: ${{ matrix.java-version }}
-      - name: Findbugs
-        run: ./mvnw install findbugs:check
+      - name: Spotbugs
+        run: ./mvnw install spotbugs:check
         env:
           MAVEN_OPTS: "-Xmx1g"
