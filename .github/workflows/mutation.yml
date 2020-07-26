@@ -34,7 +34,7 @@ jobs:
         env:
           MAVEN_OPTS: "-Xmx1g"
       - name: Mutation Test
-        run: mvn eu.stamp-project:pitmp-maven-plugin:run -DwithHistory -DtimeoutConstant=8000
+        run: mvn org.pitest:pitest-maven:mutationCoverage -DwithHistory -DtimeoutConstant=8000
         env:
           MAVEN_OPTS: "-Xmx1g"
       - name: Archive pitest reports
